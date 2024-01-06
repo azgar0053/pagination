@@ -7,22 +7,22 @@ function App() {
   const [currentPage, setCurrentPage]= useState(1);
   const itemsPerPage = 10;
 
-  const fetchData=async()=>{
-    try{
-    const response = await fetch('https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json');
-    if(response.status!==200){
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    } 
-    const data = await response.json();
-    setApiData(data);
-    } catch(error){
-      alert('failed to fetch data')
-    }
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch('https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json');
+        if (response.status !== 200) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        setApiData(data);
+      } catch (error) {
+        alert('Failed to fetch data');
+      }
+    };
 
-  useEffect(()=>{
-    fetchData()
-  }, [])
+    fetchData();
+  }, []);
 
   const indexOfLastItem =currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
