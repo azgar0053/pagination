@@ -13,7 +13,7 @@ function App() {
     const res = await fetchD.json();
     setApiData(res);
     } catch(error){
-      console.log('Data Fetching error: ', error)
+      alert('Data Fetching error: ', error)
     }
   }
 
@@ -56,7 +56,7 @@ function App() {
         </tbody>
       </table>
       <div style={{display:'flex', justifyContent:'center',}}>
-        <button onClick={handlePrev} style={{margin:'10px', padding:'10px 20px'}}>Prev</button>
+        <button onClick={handlePrev} style={{margin:'10px', padding:'10px 20px'}}>Previous</button>
         <p style={{margin:'10px'}}>{currentPage}</p>
         <button onClick={handleNext} style={{margin:'10px', padding:'10px 20px'}}>Next</button></div>
     </div>
