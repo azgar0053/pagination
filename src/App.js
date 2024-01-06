@@ -37,12 +37,15 @@ function App() {
     <div className="App">
       <h1>Employee Data Table</h1>
       <table style={{border:'2px solid lightGreen',borderCollapse:'collapse', width: '100%', margin:'20px 0px'}}>
+        <thead>
         <tr style={{border:'1px solid black',borderCollapse:'collapse', backgroundColor:'lightGreen', color:'white', }}>
           <th style={{padding:'10px'}}>ID</th>
           <th>Name</th>
           <th>Email</th>
           <th>Role</th>
         </tr>
+        </thead>
+        <tbody>
         {currentItems.map((ele)=> 
         <tr key={ele.id} style={{border:'1px solid black',borderCollapse:'collapse'}}>
           <td style={{padding:'10px'}}>{ele.id}</td>
@@ -50,6 +53,7 @@ function App() {
           <td>{ele.email}</td>
           <td>{ele.role}</td>
         </tr>)}
+        </tbody>
       </table>
       <div style={{display:'flex', justifyContent:'center',}}>
         <button onClick={handlePrev} style={{margin:'10px', padding:'10px 20px'}}>Prev</button>
