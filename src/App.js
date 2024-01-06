@@ -8,9 +8,13 @@ function App() {
   const itemsPerPage = 10;
 
   const fetchData=async()=>{
+    try{
     const fetchD = await fetch('https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json');
     const res = await fetchD.json();
     setApiData(res);
+    } catch(error){
+      console.log('Data Fetching error: ', error)
+    }
   }
 
   useEffect(()=>{
