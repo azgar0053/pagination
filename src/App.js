@@ -10,8 +10,10 @@ function App() {
   const fetchData=async()=>{
     try{
     const fetchD = await fetch('https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json');
-    const res = await fetchD.json();
-    setApiData(res);
+    if(fetchD.status===200){
+      const res = await fetchD.json();
+      setApiData(res);
+    }
     } catch(error){
       alert('failed to fetch data')
     }
