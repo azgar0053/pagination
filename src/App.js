@@ -13,7 +13,7 @@ function App() {
     const res = await fetchD.json();
     setApiData(res);
     } catch(error){
-      alert('Data Fetching error: ', error)
+      alert('failed to fetch data')
     }
   }
 
